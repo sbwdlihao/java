@@ -20,5 +20,5 @@ rootProject.name = 'java'
 include 'language'
 include 'hibernate'
 include 'httpclient'
-include 'gradle'
+include 'gradle-setting'
 
