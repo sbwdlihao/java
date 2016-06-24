@@ -10,7 +10,7 @@
         <property name="connection.username">sa</property>
         <property name="connection.password"/>
 
-        <!--JDBC connection pool (use the built-in)-->
+        <!--JDBC connection pool (use the built-in, not for production use!)-->
         <property name="connection.pool_size">1</property>
 
         <!--SQL dialect-->
@@ -26,5 +26,6 @@
         <property name="hbm2ddl.auto">create</property>
 
         <mapping resource="hbm/Event.hbm.xml"/>
+        <mapping class="com.lihao.hibernate.annotations.Event"/>
     </session-factory>
 </hibernate-configuration>

@@ -1,4 +1,4 @@
-package com.lihao.hibernate.hbm;
+package com.lihao.hibernate.annotations;
 
 import com.lihao.hibernate.SessionFactoryTest;
 import org.hibernate.Session;
@@ -8,9 +8,9 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by sbwdlihao on 6/17/16.
+ * Created by sbwdlihao on 6/24/16.
  */
-public class NativeApiIllustrationTest extends SessionFactoryTest {
+public class AnnotationsIllustrationTest extends SessionFactoryTest {
 
   @Test
   public void testBasicUsage() {
