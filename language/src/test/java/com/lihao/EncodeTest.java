@@ -1,4 +1,4 @@
-package com.lihao.lambda;
+package com.lihao;
 
 import org.junit.Test;
 
