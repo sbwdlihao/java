@@ -16,6 +16,16 @@ public class PrimitiveDateTypeTest {
   }
 
   @Test
+  public void testByte1() {
+    byte b = -12;
+    char c0 = (char)b; // = 65536 - 12 = 65524
+    char c1 = (char)(b & 0xff); // = 244
+    Assert.assertNotEquals(c0, c1);
+    Assert.assertEquals(65524, c0);
+    Assert.assertEquals(244, c1);
+  }
+
+  @Test
   public void testShort0() {
     Assert.assertTrue(Short.MAX_VALUE == 32767);
     Assert.assertTrue(Short.MIN_VALUE == -32768);
