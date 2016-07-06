@@ -21,4 +21,5 @@ include 'language'
 include 'hibernate'
 include 'httpclient'
 include 'gradle-setting'
+include 'bitcoinj'
 

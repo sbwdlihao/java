@@ -26,6 +26,38 @@ public class PrimitiveDateTypeTest {
   }
 
   @Test
+  public void testByte2() {
+    byte b0 = -12;
+    byte b1 = 0;
+    byte b2 = 12;
+    int i0 = (int)b0; // -12
+    int i1 = (int)b1; // 0
+    int i2 = (int)b2; // 12
+    int j0 = b0; // -12
+    int j1 = b1; // 0
+    int j2 = b2; // 12
+    int k0 = b0 & 0xff; // 244
+    int k1 = b1 & 0xff; // 0
+    int k2 = b2 & 0xff; // 12
+
+    byte c0 = (byte)b0; // -12
+    byte c1 = (byte)k1; // 0
+    byte c2 = (byte)k2; // 12
+
+    byte d0 = (byte)0; // 0
+    byte d1 = (byte)127; // 127
+    byte d2 = (byte)128; // -128
+    byte d3 = (byte)255; // -1
+    byte d4 = (byte)256; // 0
+    byte d5 = (byte)257; // 1
+    byte d6 = (byte)-1; // -1
+    byte d7 = (byte)-128; // -128
+    byte d8 = (byte)-129; // 127
+
+    // one byte & oxff is the index on the clock which has 256 positions from 0 to 255
+  }
+
+  @Test
   public void testShort0() {
     Assert.assertTrue(Short.MAX_VALUE == 32767);
     Assert.assertTrue(Short.MIN_VALUE == -32768);
