@@ -40,6 +40,8 @@ public class PrimitiveDateTypeTest {
     int k1 = b1 & 0xff; // 0
     int k2 = b2 & 0xff; // 12
 
+    // byte & 0xff is to convert to unsigned int
+
     byte c0 = (byte)b0; // -12
     byte c1 = (byte)k1; // 0
     byte c2 = (byte)k2; // 12
@@ -53,6 +55,12 @@ public class PrimitiveDateTypeTest {
     byte d6 = (byte)-1; // -1
     byte d7 = (byte)-128; // -128
     byte d8 = (byte)-129; // 127
+
+    byte e0 = 0b00000001; // 1
+    byte e1 = 0b01111111; // 127
+    byte e2 = (byte) 0b10000000; // -128
+    byte e3 = (byte) 0b10000001; // -127
+    byte e4 = (byte) 0b11111111; // -1
 
     // one byte & oxff is the index on the clock which has 256 positions from 0 to 255
   }
