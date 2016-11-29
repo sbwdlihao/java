@@ -23,4 +23,5 @@ include 'httpclient'
 include 'gradle-setting'
 include 'bitcoinj'
 include 'spring-boot'
+include 'bouncy-castle'
 
