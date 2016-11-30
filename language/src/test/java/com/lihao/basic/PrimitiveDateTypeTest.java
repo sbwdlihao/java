@@ -63,6 +63,8 @@ public class PrimitiveDateTypeTest {
     byte e4 = (byte) 0b11111111; // -1
 
     // one byte & oxff is the index on the clock which has 256 positions from 0 to 255
+
+    // byte是一个256个刻度的时钟，从0开始顺时针到127，接着是-128，最后到-1，再到0
   }
 
   @Test
@@ -83,6 +85,24 @@ public class PrimitiveDateTypeTest {
     Assert.assertTrue(Integer.MAX_VALUE == (int)(Math.pow(2, 31) - 1));
     Assert.assertTrue(Integer.MIN_VALUE == (int)-Math.pow(2, 31));
     Assert.assertEquals(4, Integer.BYTES);
+  }
+
+  @Test
+  public void testInt1() {
+    int a = 60; // 60 = 0000 0000 0000 0000 0000 0000 0011 1100
+    int c;
+
+    c = ~a; // -61 = 1111 1111 1111 1111 1111 1111 1100 0011
+    Assert.assertEquals(-61, c);
+
+    // int是一个4294967296个刻度的时钟，从0开始顺时针到2147483647，接着是-2147483648，最后到-1，再到0
+
+    c = a >> 2; // 15 = 0000 0000 0000 0000 0000 0000 0000 1111 有符号右移
+    Assert.assertEquals(15, c);
+    c = -61 >> 2; // -16 = 1111 1111 1111 1111 1111 1111 1111 0000 有符号右移
+    Assert.assertEquals(-16, c);
+    c = -61 >>> 2; // 1073741808 = 0011 1111 1111 1111 1111 1111 1111 0000 无符号右移，忽略符号位，空位都以0补齐
+    Assert.assertEquals(1073741808, c);
   }
 
   @Test
