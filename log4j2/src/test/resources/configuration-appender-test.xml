@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration>
+    <Appenders>
+        <Console name="stdout" target="SYSTEM_OUT">
+            <PatternLayout>
+                <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+            </PatternLayout>
+        </Console>
+        <File name="file" append="true" fileName="logs/file.txt">
+            <PatternLayout>
+                <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+            </PatternLayout>
+        </File>
+        <!--We saw a 20-200% performance improvement compared to FileAppender with "bufferedIO=true"-->
+        <RandomAccessFile name="randomAccessFile" append="true" fileName="logs/randomFile.txt">
+            <PatternLayout>
+                <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+            </PatternLayout>
+        </RandomAccessFile>
+        <!--轮转规则，每次jvm启动都处罚轮转，当前写入的文件名字是file.txt，旧的名称命名规则是12-02.1.txt,12-02.2.txt这样-->
+        <RollingFile name="rollingFile" append="true" fileName="logs/rolling/file.txt" filePattern="logs/rolling/${date:MM-dd}.%i.txt">
+            <PatternLayout>
+                <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+            </PatternLayout>
+            <OnStartupTriggeringPolicy/>
+            <DefaultRolloverStrategy fileIndex="max"/>
+        </RollingFile>
+        <!--We saw a 20-200% performance improvement compared to RollingFileAppender with "bufferedIO=true"-->
+        <RollingRandomAccessFile name="randomRollingAccessFile" append="true" fileName="logs/rollingRandom/file.txt" filePattern="logs/rollingRandom/${date:MM-dd}.%i.txt">
+            <PatternLayout>
+                <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+            </PatternLayout>
+            <OnStartupTriggeringPolicy/>
+            <DefaultRolloverStrategy fileIndex="max"/>
+        </RollingRandomAccessFile>
+    </Appenders>
+    <Loggers>
+        <Root level="ALL">
+            <AppenderRef ref="stdout"/>
+            <AppenderRef ref="file"/>
+            <AppenderRef ref="randomAccessFile"/>
+            <AppenderRef ref="rollingFile"/>
+            <AppenderRef ref="randomRollingAccessFile"/>
+        </Root>
+    </Loggers>
+</Configuration>

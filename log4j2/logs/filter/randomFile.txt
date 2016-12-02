@@ -1,0 +1,2 @@
+12:45:28.182 [main] ERROR com.lihao.log4j2.Log4j2Test - this is an error message
+12:45:28.183 [main] FATAL com.lihao.log4j2.Log4j2Test - this is a fatal message

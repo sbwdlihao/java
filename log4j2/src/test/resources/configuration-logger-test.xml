@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration>
+    <Appenders>
+        <Console name="stdout" target="SYSTEM_OUT">
+            <PatternLayout>
+                <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+            </PatternLayout>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.lihao.log4j2.Log4j2Test" level="DEBUG" additivity="false">
+            <AppenderRef ref="stdout"/>
+        </Logger>
+        <!--Every configuration must have a root logger-->
+        <!--The root logger does not have a name attribute-->
+        <!--The root logger does not support the additivity attribute since it has no parent-->
+        <Root level="ALL">
+            <AppenderRef ref="stdout"/>
+        </Root>
+    </Loggers>
+</Configuration>

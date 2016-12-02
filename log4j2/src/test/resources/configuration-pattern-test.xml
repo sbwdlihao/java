@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration>
+    <Appenders>
+        <Console name="stdout" target="SYSTEM_OUT">
+            <PatternLayout>
+                <!--06:58:48.268 [main] INFO  com.lihao.log4j2.Log4j2Test - this is a info message-->
+                <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+            </PatternLayout>
+        </Console>
+        <Console name="stdout1" target="SYSTEM_OUT">
+            <PatternLayout>
+                <!--[main] INFO  lihao.log4j2.Log4j2Test - this is a info message-->
+                <Pattern>[%thread] %-5level %logger{3} - %msg%n</Pattern>
+            </PatternLayout>
+        </Console>
+        <Console name="stdout2" target="SYSTEM_OUT">
+            <PatternLayout>
+                <!--[main] INFO  lihao.log4j2.Log4j2Test - BC13234 - this is a info message-->
+                <Pattern>[%thread] %-5level %logger{3} - %mdc{userId} - %msg%n</Pattern>
+            </PatternLayout>
+        </Console>
+        <Console name="stdout3" target="SYSTEM_OUT">
+            <PatternLayout>
+                <!--[INFO ] c.l.l.Log4j2Test ====== c.l.l.Log4j2Test.TestPatternLayout:55 this is a info message ======-->
+                <MarkerPatternSelector defaultPattern="[%-5level] %c{1.} %msg%n">
+                    <PatternMatch key="ID" pattern="[%-5level] %c{1.} ====== %C{1.}.%M:%L %msg ======%n"/>
+                </MarkerPatternSelector>
+            </PatternLayout>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="DEBUG">
+            <AppenderRef ref="stdout"/>
+            <AppenderRef ref="stdout1"/>
+            <AppenderRef ref="stdout2"/>
+            <AppenderRef ref="stdout3"/>
+        </Root>
+    </Loggers>
+</Configuration>

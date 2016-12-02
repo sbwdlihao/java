@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--configuration的status logger level默认是ERROR，现在设置成debug后，能看到log4j2内部输出的debug信息-->
+<!--默认情况下是输出到std err，设置当前项目的目录之下（log4j2/statusLogger.txt），文件内容会被覆盖-->
+<Configuration status="DEBUG" dest="logs/status.txt">
+    <Appenders>
+        <Console name="stdout" target="SYSTEM_OUT">
+            <PatternLayout>
+                <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+            </PatternLayout>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="ERROR">
+            <AppenderRef ref="stdout"/>
+        </Root>
+    </Loggers>
+</Configuration>
