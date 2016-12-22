@@ -1,5 +1,6 @@
 dependencies {
-    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.2.0.Final'
-    compile group: 'org.hibernate', name: 'hibernate-envers', version: '5.2.0.Final'
-    compile group: 'com.h2database', name: 'h2', version: '1.4.192'
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.2.5.Final'
+    compile group: 'org.hibernate', name: 'hibernate-envers', version: '5.2.5.Final'
+    compile group: 'org.hibernate', name: 'hibernate-jpamodelgen', version: '5.2.5.Final'
+    compile group: 'com.h2database', name: 'h2', version: '1.4.193'
 }
