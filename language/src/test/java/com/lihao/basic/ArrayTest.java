@@ -24,4 +24,18 @@ public class ArrayTest {
     };
     Assert.assertEquals("e", strings[1][2]);
   }
+
+  @Test
+  public void testArray2() {
+    // 创建一个长度为3的二维数组
+    byte[][] n = new byte[3][];
+    for (int i = 0; i < 3; i++) {
+      n[i] = new byte[i+1];
+    }
+    Assert.assertEquals(3, n.length);
+
+    // 长度为0的数组
+    byte[] n1 = new byte[0];
+    Assert.assertEquals(0, n1.length);
+  }
 }
