@@ -5,6 +5,7 @@ import org.apache.logging.log4j.message.StructuredDataMessage;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.UUID;
 
 /**
@@ -109,5 +110,17 @@ public class Log4j2Test {
         logger.info("this is a info message");
         logger.error("this is an error message");
         logger.fatal("this is a fatal message");
+    }
+
+    @Test
+    public void testExceptionObject() {
+        System.setProperty("log4j.configurationFile", "configuration-filter-test.xml");
+        Logger logger = LogManager.getLogger();
+        IOException e = new IOException("test exception");
+        try {
+            throw e;
+        } catch (IOException e1) {
+            logger.error(e1);
+        }
     }
 }

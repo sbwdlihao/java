@@ -1,1 +1,0 @@
-13:00:35.075 [main] INFO  com.lihao.log4j2.Log4j2Test - this is a info message
