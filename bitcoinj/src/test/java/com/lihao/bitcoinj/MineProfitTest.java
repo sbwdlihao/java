@@ -14,17 +14,32 @@ import java.util.List;
 public class MineProfitTest {
 
     private static final BigDecimal twoPow32 = new BigDecimal(Math.pow(2, 32));
-    private static final BigDecimal hashRate = new BigDecimal(Math.pow(10, 12));
+    private static final BigDecimal hashRate = new BigDecimal(Math.pow(10, 12)); // 1T算力
     private static final BigDecimal rewordPerBlock = new BigDecimal(12.5);
 
     @Test
     public void testOneDay() {
-        BigDecimal block = calculateBlock("3.17688400354E11", 0, 86400);
-        System.out.println(block.multiply(rewordPerBlock)); // 0.00079152000
+        BigDecimal block = calculateBlock("4.22170566883E11", 0, 86400);
+        System.out.println(block.multiply(rewordPerBlock)); // 0.00059562875
     }
 
     @Test
     public void test2016() throws IOException, URISyntaxException {
+        System.out.println(calculateReward()); // 0.42131951500
+    }
+
+    // 计算盈亏平衡点
+    @Test
+    public void testZero() throws IOException {
+        BigDecimal fixCost = new BigDecimal(888); // 一台矿机的固定成本
+        double electricBill = 1.428; // 每天的电费
+        int mineDay = 365 - 12; // 挖矿的天数，每月停1次维护
+        BigDecimal electricCost = new BigDecimal(electricBill * mineDay); // 一年的电费
+        BigDecimal reward = calculateReward(); // 1T算力一年挖到的btc
+        System.out.println(fixCost.add(electricCost).divide(reward, BigDecimal.ROUND_UP)); // 3304
+    }
+
+    private BigDecimal calculateReward() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         Difficulty difficulty = objectMapper.readValue(this.getClass().getClassLoader().getResource("difficulty2016.json"), Difficulty.class);
         List<Point> points = difficulty.getValues();
@@ -37,7 +52,7 @@ public class MineProfitTest {
             int endTime = end.getX();
             block = block.add(calculateBlock(diff, startTime, endTime));
         }
-        System.out.println(block.multiply(rewordPerBlock)); // 0.47268783250
+        return block.multiply(rewordPerBlock);
     }
 
     private BigDecimal calculateBlock(String diff, int startTime, int endTime) {

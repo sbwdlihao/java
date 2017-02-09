@@ -1,4 +1,5 @@
 .idea
 IdeaProjects.iml
 .gradle
+logs
 build
