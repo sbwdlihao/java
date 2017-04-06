@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package protobuf;
+
+import "google/api/annotations.proto";
+
+option java_package = "com.lihao.protobuf";
+option java_outer_classname = "EchoServiceProtos";
+
+message EchoMessage {
+    string value = 1;
+}
+
+service EchoService {
+    rpc Echo(EchoMessage) returns (EchoMessage) {
+        option (google.api.http) = {
+            post: "/v1/echo"
+            body: "*"
+        };
+    }
+}

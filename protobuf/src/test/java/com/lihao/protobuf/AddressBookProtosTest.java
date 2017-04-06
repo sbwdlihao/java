@@ -2,7 +2,8 @@ package com.lihao.protobuf;
 
 import org.junit.Assert;
 import org.junit.Test;
-import com.lihao.protobuf.AddressBookProtos.*;
+
+import com.lihao.protobuf.AddressBookProtos.Person;
 
 
 public class AddressBookProtosTest {

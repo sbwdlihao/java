@@ -26,4 +26,5 @@ include 'spring-boot'
 include 'bouncy-castle'
 include 'log4j2'
 include 'protobuf'
+include 'special'
 

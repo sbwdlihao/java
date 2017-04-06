@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package protobuf;
 
+import "google/protobuf/any.proto";
+
 option java_package = "com.lihao.protobuf"; // 会在--java_out制定的目录下生成com/lihao/protobuf目录
 option java_outer_classname = "AddressBookProtos"; // 最终生成的类文件名称
 
@@ -26,4 +28,5 @@ message Person {
 
 message AddressBook {
     Person people = 1;
+    google.protobuf.Any details = 2;
 }
