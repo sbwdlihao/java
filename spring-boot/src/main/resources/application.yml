@@ -1,5 +1,5 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost/study?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&autoReconnect=true
+    url: jdbc:mysql://localhost/study?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&autoReconnect=true&useSSL=false
     username: root
     password: root

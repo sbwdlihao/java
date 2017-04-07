@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by sbwdlihao on 5/26/16.
  */
 @RestController
+@RequestMapping("/sample")
 public class SampleController {
 
   @Autowired
