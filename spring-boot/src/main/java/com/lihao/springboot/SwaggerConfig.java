@@ -3,9 +3,7 @@ package com.lihao.springboot;
 import com.google.common.base.Predicate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import springfox.documentation.builders.ApiInfoBuilder;
-import springfox.documentation.builders.ImplicitGrantBuilder;
-import springfox.documentation.builders.OAuthBuilder;
+import springfox.documentation.builders.*;
 import springfox.documentation.service.*;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spi.service.contexts.SecurityContext;
@@ -33,10 +31,12 @@ public class SwaggerConfig {
                 .groupName("full-petstore-api")
                 .apiInfo(apiInfo())
                 .select()
-                .paths(petstorePaths())
-                .build()
-                .securitySchemes(newArrayList(oauth()))
-                .securityContexts(newArrayList(securityContext()));
+                .apis(RequestHandlerSelectors.basePackage("com.lihao.springboot.controllers"))
+                .paths(PathSelectors.regex("/api/pet/findByStatus"))
+//                .paths(PathSelectors.regex("/api/pet.*"))
+                .build();
+//                .securitySchemes(newArrayList(oauth()))
+//                .securityContexts(newArrayList(securityContext()));
     }
 
     @Bean

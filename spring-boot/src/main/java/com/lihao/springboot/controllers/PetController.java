@@ -21,7 +21,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
 @RestController
 @RequestMapping("/api/pet")
-@Api(value = "/pet", description = "Operations about pets")
+@Api(tags = "pet", description = "Operations about pets")
 public class PetController {
     PetRepository petData = new PetRepository();
 

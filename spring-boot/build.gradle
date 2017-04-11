@@ -7,6 +7,12 @@ buildscript {
     }
 }
 
+repositories {
+    maven {
+        url "http://oss.jfrog.org/artifactory/oss-snapshot-local/"
+    }
+}
+
 apply plugin: 'spring-boot'
 
 dependencies {
@@ -14,8 +20,8 @@ dependencies {
     // end::actuator[]
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("mysql:mysql-connector-java")
-    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.6.1'
-    compile group: 'io.springfox', name: 'springfox-swagger-ui-rfc6570', version: '0.9.6'
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.7.0-SNAPSHOT'
+    compile group: 'io.springfox.ui', name: 'springfox-swagger-ui-rfc6570', version: '1.0.0'
 
     // tag::tests[]
     testCompile("org.springframework.boot:spring-boot-starter-test")
