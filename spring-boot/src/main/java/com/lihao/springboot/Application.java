@@ -4,14 +4,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Import;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
-import javax.annotation.PostConstruct;
-
-/**
- * Created by sbwdlihao on 5/26/16.
- */
 @SpringBootApplication
 public class Application {
 
