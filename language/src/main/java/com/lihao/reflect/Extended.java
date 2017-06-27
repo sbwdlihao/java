@@ -1,7 +1,15 @@
 package com.lihao.reflect;
 
-/**
- * Created by sbwdlihao on 05/02/2017.
- */
 class Extended extends Base{
+    private static final long serialVersionUID = 4796687882810631486L;
+
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

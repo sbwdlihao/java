@@ -13,6 +13,27 @@ import java.util.Random;
 public class ListTest {
 
     @Test
+    public void testList() {
+        try {
+            // 会抛出异常
+            List<Long> longs = new ArrayList<>();
+            longs.add(3, 1L);
+            System.out.println(longs.size());
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println(e);
+        }
+
+        try {
+            // 会抛出异常
+            List<Long> longs = new LinkedList<>();
+            longs.add(3, 1L);
+            System.out.println(longs.size());
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println(e);
+        }
+    }
+
+    @Test
     public void testListPerformance() {
         List<byte[]> arrayList = new ArrayList<>();
         List<byte[]> linkedList = new LinkedList<>();

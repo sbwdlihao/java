@@ -1,6 +1,11 @@
 package com.lihao.reflect;
 
+import com.lihao.basic.Bicycle;
+import org.junit.Assert;
 import org.junit.Test;
+
+import java.io.ByteArrayInputStream;
+import java.io.ObjectInputStream;
 
 /**
  * Created by sbwdlihao on 05/02/2017.
@@ -57,6 +62,14 @@ public class ReflectTest {
         };
         System.out.println(bases.getClass().isArray()); // true
         System.out.println(bases.getClass().getComponentType()); // class com.lihao.reflect.Base
+    }
+
+    @Test
+    public void testUnSerialize() throws ClassNotFoundException {
+        ClassLoaderA a = new ClassLoaderA();
+        Class e0 = a.loadClass("com.lihao.reflect.Extended");
+        Class e1 = getClass().getClassLoader().loadClass("com.lihao.reflect.Extended");
+        Assert.assertEquals(e0, e1);
     }
 
     private Object a() {
