@@ -1,0 +1,4 @@
+dependencies {
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+    compile project(':json')
+}

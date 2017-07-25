@@ -28,4 +28,6 @@ include 'log4j2'
 include 'protobuf'
 include 'special'
 include 'json'
+include 'netty'
+include 'logback'
 

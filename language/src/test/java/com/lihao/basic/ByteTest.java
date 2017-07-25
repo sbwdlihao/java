@@ -1,5 +1,6 @@
 package com.lihao.basic;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.nio.ByteBuffer;
@@ -19,6 +20,9 @@ public class ByteTest {
 
     @Test
     public void test1() {
+        byte[] a0 = new byte[2]; // 默认初始化所有的数组元素为0
+        Assert.assertEquals(0, a0[0]);
+        Assert.assertEquals(0, a0[1]);
         byte[][] a = new byte[2][]; // a中的每个元素都是空数组
         byte[][] b = new byte[2][0]; // b中的每个元素都是长度为0的数组
     }
