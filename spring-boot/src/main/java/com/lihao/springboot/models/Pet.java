@@ -19,8 +19,6 @@
 
 package com.lihao.springboot.models;
 
-import io.swagger.annotations.ApiModelProperty;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -76,7 +74,6 @@ public class Pet implements Identifiable<Long> {
     this.tags = tags;
   }
 
-  @ApiModelProperty(value = "pet status in the store", allowableValues = "available,pending,sold")
   public String getStatus() {
     return status;
   }
